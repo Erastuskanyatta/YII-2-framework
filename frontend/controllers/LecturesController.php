@@ -66,7 +66,8 @@ class LecturesController extends Controller
     {
         $model = new Lectures();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save(false);
             return $this->redirect(['index']);
         }
 
